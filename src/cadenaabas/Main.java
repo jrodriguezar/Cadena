@@ -11,11 +11,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Granja granjax = new Granja("GranjaX", "Pequenia", "calle-123");
-        Granja granjay = new Granja("GranjaY", "Grande", "calle-142");
-        ManofacturaW manow = new ManofacturaW("ManoW", "pequenia", "calle123");
-        CentroDistribucion centrodistri = new CentroDistribucion("Servientrega", "Sabroson", "calle-1756");
-        RetailR retail = new RetailR("Exito", "Severo", "calle142-carr-43");
+        Granja granjax = new Granja("GranjaX", "Pequenia", "lat12-lon:143");
+        Granja granjay = new Granja("GranjaY", "Grande", "lat12-lon:13");
+        ManofacturaW manow = new ManofacturaW("ManoW", "pequenia", "lat1223-lon:13");
+        CentroDistribucion centrodistri = new CentroDistribucion("Servientrega", "Sabroson", "lat12-lon:1334");
+        RetailR retail = new RetailR("Exito", "Severo", "lat123434-lon:13343");
 
         Scanner lectura = new Scanner(System.in);
         int a = 0;
@@ -35,7 +35,7 @@ public class Main {
         do {
             System.out.println("Bienvenido al sistema comercial de comidas POO \n" + "Por favor indique el tipo de usuario es: ");
             System.out.println("1. Cliente de compra.");
-            System.out.println("2. Gerente de cadena de suminiCliente de comstros.");
+            System.out.println("2. Gerente de cadena de suministros.");
             System.out.println("3. Salir.");
             String a1 = lectura.nextLine();
             a = Integer.parseInt(a1);
@@ -53,7 +53,7 @@ public class Main {
                     b = Integer.parseInt(b1);
 
                     
-                    do {
+                    //do {
                         switch (b) {
                             case 1:
                                 if (retail.getProductos().isEmpty()) {
@@ -77,7 +77,7 @@ public class Main {
                                 b = 5;
                                 break;
                         }
-                    } while ((b > 0) && (b < 3));
+                    //} while ((b > 0) && (b < 3));
                     break;
 
                 case 2:
@@ -91,8 +91,8 @@ public class Main {
                     String d1 = lectura.nextLine();
                     int d = Integer.parseInt(d1);
 
-                    do {
-                        switch (d) {
+                    //do {
+                    switch (d) {
                             case 1:
                                 System.out.println("Ingrese el nombre del producto a cultivar(Harina o Leche): ");
                                 String namae = lectura.nextLine();
@@ -113,9 +113,9 @@ public class Main {
                                         granjax.crearpro(namae, di, ms, an);
                                     } else {
                                         System.out.println("El producto no tiene lugar donde ser cultivado");
-                                    }break;
+                                    }
                                 }
-                                
+                                break;
                             case 2:
                                 System.out.println("Ingrese el nombre del producto a procesar");
                                 String nuy = lectura.nextLine();
@@ -139,7 +139,7 @@ public class Main {
                                 }
                                 break;
                         }
-                    } while ((d > 0) && (d < 7));
+                    //} while ((d > 0) && (d < 7));
                     break;
                 case 3:
                     System.out.println("Gracias por su visita.");
