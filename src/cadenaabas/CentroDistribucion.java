@@ -1,23 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cadenaabas;
+
+import java.util.ArrayList;
 
 /**
  *
- * @author jrodriguezar
+ * @author jhon
  */
 public class CentroDistribucion extends EslabonC{
-    private ManofacturaW manofact;
+    private ArrayList<Productopro> productopro;
 
-    public CentroDistribucion(String nombre, String descripcion, String direccion, Producto productos, ManofacturaW manofact) {
-        super(nombre, descripcion, direccion, productos);
-        this.manofact = manofact;
+    public CentroDistribucion(String nombre, String descripcion, String direccion) {
+        super(nombre, descripcion, direccion);
+        ArrayList<Productopro> productopro = new ArrayList<>();
+        this.productopro = productopro;
     }
 
-    public void registrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Productopro> getProductopro() {
+        return productopro;
+    }
+    
+    public void cargarpro(Productopro producto, int dia, int mes, int anio){
+        Fecha fecha = new Fecha(dia, mes, anio);
+        producto.añadirfecha(fecha);
+        producto.añadirname(nombre);
+        this.productopro.add(producto);
+        //return producto;
+    }
+    
+    public void enviar(Productopro producto, String namae, int dia, int mes, int anio){
+        producto.anadirname(namae);
+        producto.anadirfecha(dia, mes, anio);
     }
 }

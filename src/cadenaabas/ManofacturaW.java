@@ -1,43 +1,48 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cadenaabas;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author jrodriguezar
+ * @author jhon
  */
 public class ManofacturaW extends EslabonC{
-
-    private Granja granjaX;
-    private Granja granjaY;
-
-    public ManofacturaW(Granja granjaX, Granja granjaY, String nombre, String descripcion, String direccion, Producto productos) {
-        super(nombre, descripcion, direccion, productos);
-        this.granjaX = granjaX;
-        this.granjaY = granjaY;
-    }
-
-    public ManofacturaW(String nombre, String descripcion, String direccion, Producto productos) {
-        super(nombre, descripcion, direccion, productos);
+    
+    private ArrayList<Productoc> produc;
+    private ArrayList<Productopro> prodp;
+    
+    public ManofacturaW(String nombre, String descripcion, String direccion) {
+        super(nombre, descripcion, direccion);
+        ArrayList<Productoc> produc = new ArrayList<>();
+        ArrayList<Productopro> produp = new ArrayList<>();
+        this.produc = produc;
+        this.prodp = produp;
     }
     
-    public ArrayList<Productoc> unionmat(Productoc p, Productoc r){
-        ArrayList<Productoc> proc = null;
-        proc.add(r);
-        proc.add(p);
-        return proc;
+    public void añadirmateria(Productoc produc){
+        this.produc.add(produc);
     }
-    public Productopro procesarpro(String nombre, int nlote, ArrayList<Productoc> productos, Fecha fecha){
-        return new Productopro(productos, nlote, fecha, nombre);
+    
+    public ArrayList<Productoc> getProduc() {
+        return produc;
     }
-
-    @Override
-    public void registrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public ArrayList<Productopro> getProdp() {
+        return prodp;
+    }
+    
+    public void procesarpro(String nombre, int nlote, int dia, int mes, int anio){
+        Fecha fecha = new Fecha(dia, mes, anio);
+        ArrayList<String> name = new ArrayList<>();
+        ArrayList<Fecha> fech = new ArrayList<>();
+        fech.add(fecha);
+        name.add(this.nombre);
+        Productopro pro = new Productopro(this.produc, nlote, fech, nombre, name);
+        this.prodp.add(pro);
+    }
+    
+    public void enviar(Productopro producto, String namae, int dia, int mes, int anio){
+        producto.anadirname(namae);
+        producto.anadirfecha(dia, mes, anio);
     }
 }

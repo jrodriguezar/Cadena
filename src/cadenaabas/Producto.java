@@ -1,17 +1,19 @@
 package cadenaabas;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author jrodriguezar
+ * @author jhon
  */
 public abstract class Producto {
-    protected Fecha fecha;
+    protected ArrayList<Fecha> fecha;
     protected String nombre;
 
-    public Producto(Fecha fecha, String nombre) {
+    public Producto(ArrayList<Fecha> fecha, String nombre) {
         this.fecha = fecha;
         this.nombre = nombre;
     }
     
-    public abstract void registro();
+    public abstract void imprimirtraza();
 }

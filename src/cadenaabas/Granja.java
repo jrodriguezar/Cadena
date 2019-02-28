@@ -1,27 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cadenaabas;
+
+import java.util.ArrayList;
 
 /**
  *
- * @author jrodriguezar
+ * @author jhon
  */
 public class Granja extends EslabonC{
-
-    public Granja(String nombre, String descripcion, String direccion, Producto productos) {
-        super(nombre, descripcion, direccion, productos);
+    
+    private ArrayList<Productoc> producto;
+    
+    public Granja(String nombre, String descripcion, String direccion) {
+        super(nombre, descripcion, direccion);
+        ArrayList<Productoc> pro = new ArrayList<>();
+        this.producto = pro;
     }
     
-    public Productoc crearpro(String nombre, Fecha fecha){
-        return new Productoc(fecha, nombre);
+    public ArrayList<Productoc> getProducto() {
+        return producto;
     }
-
-    @Override
-    public void registrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void listar(){
+        System.out.println("Lista de materias primas cultivadas: ");
+        int i =0;
+        for(Productoc pro : this.producto)
+            System.out.println(i+1 + " Nombre: " + pro.nombre);
     }
-            
+    
+    public void crearpro(String nombre, int dia, int mes, int anio){
+        Fecha fecha = new Fecha(dia, mes, anio);
+        ArrayList<Fecha> fech = new ArrayList<>();
+        fech.add(fecha);
+        Productoc proc = new Productoc(fech, nombre);
+        proc.anadirname(this.nombre);
+        this.producto.add(proc);
+        //return this.producto;
+    }
+    
+    public void enviar(Productoc producto, String namae, int dia, int mes, int anio){
+        producto.anadirname(namae);
+        producto.anadirfecha(dia, mes, anio);
+    }
 }
