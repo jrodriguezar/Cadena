@@ -41,8 +41,28 @@ public class GestionArchivo {
                 salida.print(",");
             }
             for(Fecha fecha : producto.get(i).fecha){
-                salida.print(fecha);
+                salida.print(fecha.getDia());
                 salida.print(",");
+                salida.print(fecha.getMes());
+                salida.print(",");
+                salida.print(fecha.getAnio());
+                salida.print(",");
+            }
+            for(Productoc pro: producto.get(i).getMateriap()){
+                salida.print(pro.nombre);
+                salida.print(",");
+                for(Fecha fe: pro.fecha){
+                    salida.print(fe.getDia());
+                    salida.print(",");
+                    salida.print(fe.getMes());
+                    salida.print(",");
+                    salida.print(fe.getAnio());
+                    salida.print(",");
+                }
+                for(String namae: pro.getNombrelug()){
+                    salida.print(namae);
+                    salida.print(",");
+                }
             }
         }
         return true;
