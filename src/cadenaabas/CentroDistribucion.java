@@ -27,6 +27,14 @@ public class CentroDistribucion extends EslabonC{
         //return producto;
     }
     
+    public void listarproductos(){
+        int i = 0;
+        for(Productopro pro : this.productopro){
+            System.out.println(i + ". Nombre del producto: " + pro.nombre);
+            i++;
+        }
+    }
+    
     public void enviar(Productopro producto, String namae, int dia, int mes, int anio){
         producto.anadirname(namae);
         producto.anadirfecha(dia, mes, anio);

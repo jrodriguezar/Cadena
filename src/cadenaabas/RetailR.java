@@ -25,10 +25,10 @@ public class RetailR extends EslabonC {
     }
     
     public void listarproductos(){
-        System.out.println("Lista de productos disponibles para la venta: ");
+        System.out.println("Lista de productos: ");
         int i = 0;
         for(Productopro pro : this.productos){
-            System.out.println(i+1 + ".Nombre del producto: " + pro.nombre);
+            System.out.println(i + ".Nombre del producto: " + pro.nombre);
             System.out.println("Precio del producto: " + pro.getPrecio());
             System.out.println("Codigo de venta: " + pro.getCodigoven());
             i++;

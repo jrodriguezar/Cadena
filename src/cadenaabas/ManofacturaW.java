@@ -31,6 +31,14 @@ public class ManofacturaW extends EslabonC{
         return prodp;
     }
     
+    public void listarproductos(){
+        int i = 0;
+        for(Productopro pro : this.prodp){
+            System.out.println(i + ". Nombre del producto: " + pro.nombre);
+            i++;
+        }
+    }
+    
     public void procesarpro(String nombre, int nlote, int dia, int mes, int anio){
         Fecha fecha = new Fecha(dia, mes, anio);
         ArrayList<String> name = new ArrayList<>();

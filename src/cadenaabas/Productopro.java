@@ -53,6 +53,18 @@ public class Productopro extends Producto{
     public String getCodigoven() {
         return codigoven;
     }
+
+    public ArrayList<Productoc> getMateriap() {
+        return materiap;
+    }
+
+    public int getNlote() {
+        return nlote;
+    }
+
+    public ArrayList<String> getNombreslug() {
+        return nombreslug;
+    }
     
     public void anadirname(String name){
         this.nombreslug.add(name);
@@ -67,7 +79,7 @@ public class Productopro extends Producto{
     public void imprimirtraza() {
         System.out.println("Nombre del producto: " + this.nombre);
         System.out.println("Trazado del producto: ");
-        for (int i = 0; i < this.nombreslug.size(); i+=2) {
+        for (int i = 1; i < this.nombreslug.size(); i+=2) {
             System.out.println("En la fecha: " + this.fecha.get(i-1).imprimirfech() + "\n" + "paso por el lugar: " + this.nombreslug.get(i-1));
             System.out.println("En la fecha: " + this.fecha.get(i).imprimirfech() + "\n" + "fue enviado a: " + this.nombreslug.get(i));
         }
